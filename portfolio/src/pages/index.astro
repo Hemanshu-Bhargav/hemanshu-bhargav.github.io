@@ -10,11 +10,12 @@ import Layout from '../layouts/Layout.astro';
     box-sizing: border-box;
   }
 
-  /* Navigation Bar */
+  /* Full-width Navigation Bar */
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     padding: 1rem 2rem;
     background: #1a1a1a;
     color: white;
@@ -36,6 +37,12 @@ import Layout from '../layouts/Layout.astro';
     color: #00bcd4;
   }
 
+  /* Accessibility Focus Indicator */
+  button:focus, a:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(0, 188, 212, 0.8);
+  }
+
   /* Hero Section */
   .hero {
     display: flex;
@@ -48,12 +55,13 @@ import Layout from '../layouts/Layout.astro';
     font-family: Arial, sans-serif;
   }
 
-  /* Animated Text */
+  /* Spaced-Out Animated Name */
   .animated-text span {
     opacity: 0;
     transform: translateY(20px);
     display: inline-block;
     animation: fadeInUp 1s ease forwards;
+    letter-spacing: 0.3rem; /* Spaced letters */
   }
 
   .animated-text span:nth-child(1) { animation-delay: 0.3s; }
@@ -75,10 +83,23 @@ import Layout from '../layouts/Layout.astro';
       transform: translateY(0);
     }
   }
+
+  /* Braille-Inspired Background Dots */
+  .braille-bg {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 10px 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
 </style>
 
 <Layout>
-  <!-- Navigation Bar -->
+  <!-- Full-Width Navigation Bar -->
   <nav>
     <h1>My Portfolio</h1>
     <ul>
@@ -89,8 +110,9 @@ import Layout from '../layouts/Layout.astro';
     </ul>
   </nav>
 
-  <!-- Hero Section with Animated Text. -->
+  <!-- Hero Section with Braille-Inspired Background -->
   <section class="hero">
+    <div class="braille-bg"></div>
     <div class="animated-text">
       <span>H</span><span>i</span>, <span>m</span><span>y</span> <span>n</span><span>a</span><span>m</span><span>e</span> <span>i</span><span>s</span>
       <br />
