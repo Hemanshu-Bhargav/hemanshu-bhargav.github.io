@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+const { title = "Hemanshu Bhargav's Portfolio" } = Astro.props;
+import Navbar from '../components/Navbar.astro';
+---
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  </head>
+  <body class="relative z-0 bg-white text-black font-sans">
+    <Navbar tabindex="0" />
+    <main class="px-8 py-6" role="main">
+      <slot />
+    </main>
+  </body>
+</html>

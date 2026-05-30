@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .heading-xl {
+    @apply text-4xl md:text-5xl font-bold;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-semibold;
+  }
+
+  .heading-md {
+    @apply text-2xl font-semibold;
+  }
+}
+
+body {
+    @apply bg-white text-black font-sans;
+  }

@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="pt-8 px-6 pb-10 max-w-7xl mx-auto min-h-screen space-y-12 [scroll-padding-top:7rem]">
+    <!-- Sticky Page Title -->
+    <section class="sticky top-24 bg-white z-10 px-6 py-4 border-b shadow-sm pointer-events-none">
+      <div class="max-w-7xl mx-auto pointer-events-auto">
+        <h1 class="text-3xl md:text-4xl font-bold">PromoBoss</h1>
+        <p class="text-gray-600 text-base md:text-lg mt-1">
+          A software application that solves a real-world issue faced by telecom sales employees.
+        </p>
+      </div>
+    </section>
+
+    <div class="md:flex gap-8">
+      <!-- Sidebar -->
+      <aside class="hidden md:block md:w-[20%] text-sm font-medium space-y-3 self-start sticky top-[4.25rem] pt-0" role="complementary" aria-label="Section Navigation">
+        <nav class="space-y-2" aria-label="Sidebar Navigation">
+          <a href="#preamble" id="nav-problem" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Preamble</a>
+          <a href="#problem" id="nav-problem" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Problem</a>
+          <a href="#methods" id="nav-methods" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Methods</a>
+          <a href="#findings" id="nav-findings" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Findings</a>
+          <a href="#recommendations" id="nav-recommendations" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Recommendations</a>
+          <a href="#publication" id="nav-publication" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Publication</a>
+        </nav>
+      </aside>
+
+      <!-- Main Sections -->
+
+      <section class="md:w-[80%] flex-1 space-y-20" aria-label="Main Article Content">
+        <section id="premable" class="md:flex gap-x-12" role="region" aria-labelledby="preamble-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="problem-heading" class="text-2xl font-semibold mt-6">Preamble</h2>
+            <p>......</p>
+          </article>
+          <div class="md:w-[65%]">
+          <img src="/images/ml-grid.png" alt="Background Information: Pictoral grid showing current ASR systems are lacking" class="rounded-xl border w-full h-auto" />
+          </div>
+        </section>
+
+        <section id="problem" class="md:flex gap-x-12" role="region" aria-labelledby="problem-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="problem-heading" class="text-2xl font-semibold mt-6">Problem</h2>
+            <p>...</p>
+          </article>
+          <div class="md:w-[65%]">
+          <img src="/images/ml-problem.png" alt="Waveform image showing sysarthric speech has more diffuse regions than non-disordered speech" class="rounded-xl border w-full h-auto" />
+          </div>
+        </section>
+
+        <section id="recommendations" class="md:flex gap-x-12" role="region" aria-labelledby="recommendations-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="recommendations-heading" class="text-2xl font-semibold">Recommendations</h2>
+             <p>Collected </p>
+          </article>
+          <div class="md:w-[65%]">
+            <img src="/images/ml-speechbrain.png" alt="Logo of Transformer library used" class="rounded-xl border w-full h-auto" />
+          </div>
+        </section>
+
+        <section id="publication" class="md:flex gap-x-12" role="region" aria-labelledby="publication-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="publication-heading" class="text-2xl font-semibold">Publication 1</h2>
+             <p>
+              Literature Review 
+            </p>
+          </article>
+          <div class="md:w-[65%]">
+            <iframe
+              src="/docs/ml_asr_yrc.pdf"
+              class="w-full h-[720px] rounded-xl border"
+              title="Literature Review of Automatic Speech Recongition"
+            ></iframe>
+          </div>
+        </section>
+
+          <section id="publication" class="md:flex gap-x-12" role="region" aria-labelledby="publication-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="publication-heading" class="text-2xl font-semibold">Publication 2</h2>
+             <p>
+              Academic publication disseminating my research-- presented at the Young Researchers Consoritum (ICCHP-AATE) 2022.
+            </p>
+          </article>
+
+          <div class="md:w-[65%]">
+            <iframe
+              src="/docs/ml_asr_lit_review.pdf"
+              class="w-full h-[720px] rounded-xl border"
+              title="Young Researchers Consortium Publication"
+            ></iframe>
+          </div>
+        </section>
+    </div>
+  </main>
+
+  <script>
+    /* ----------------------------------------------
+       Deterministic scroll‑sync for sidebar links
+       ---------------------------------------------- */
+    const sectionIds = [
+      "problem",
+      "methods",
+      "findings",
+      "recommendations",
+      "impact",
+      "publication",
+    ];
+    // Dynamically compute sticky header height
+    const headerEl = document.querySelector('section.sticky');
+    function getHeaderHeight() {
+      return headerEl ? headerEl.getBoundingClientRect().height : 0;
+    }
+    const sidebarLinks = sectionIds.map(id => ({
+      id,
+      link: document.getElementById(`nav-${id}`),
+      section: document.getElementById(id),
+    }));
+
+    function highlight(id) {
+      sidebarLinks.forEach(({ link, id: linkId }) => {
+        if (!link) return;
+        const active = id === linkId;
+        link.classList.toggle("text-black", active);
+        link.classList.toggle("font-semibold", active);
+        link.classList.toggle("text-gray-600", !active);
+      });
+    }
+
+    /* Throttled scroll handler via rAF */
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const vh = window.innerHeight;
+        const hh = getHeaderHeight();
+        let closest = sidebarLinks[0];
+        let minDist = Infinity;
+
+        sidebarLinks.forEach(obj => {
+          const rect = obj.section?.getBoundingClientRect();
+          if (!rect) return;
+          // distance of section’s center to viewport center
+          const centerY = rect.top + rect.height / 2;
+          const dist = Math.abs(centerY - (vh / 2));
+          if (dist < minDist) {
+            minDist = dist;
+            closest = obj;
+          }
+        });
+
+        highlight(closest.id);
+        ticking = false;
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      highlight("problem"); // initial highlight
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      /* Force demo video to 0.5× speed */
+      const demoVideo = document.getElementById("demo-video") as HTMLVideoElement | null;
+      if (demoVideo) {
+        demoVideo.defaultPlaybackRate = 0.5;
+        demoVideo.playbackRate = 0.5;
+      }
+    });
+
+  </script>
+</Layout>

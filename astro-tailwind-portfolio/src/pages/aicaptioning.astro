@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="pt-8 px-6 pb-10 max-w-7xl mx-auto min-h-screen space-y-12 [scroll-padding-top:7rem]">
+    <!-- Sticky Page Title -->
+    <section class="sticky top-24 bg-white z-10 px-6 py-4 border-b shadow-sm pointer-events-none">
+      <div class="max-w-7xl mx-auto pointer-events-auto">
+        <h1 class="text-3xl md:text-4xl font-bold">Supervising AI User Study</h1>
+        <p class="text-gray-600 text-base md:text-lg mt-1">
+          Designing for trust and workload in AI-assisted live captioning systems using mixed methods research.
+        </p>
+      </div>
+    </section>
+
+    <div class="md:flex gap-8 items-start">
+      <!-- Sidebar -->
+      <aside class="hidden md:block md:w-[20%] text-sm font-medium space-y-3 pt-0" role="complementary" aria-label="Section Navigation">
+        <nav class="space-y-2" aria-label="Sidebar Navigation">
+          <a href="#problem" id="nav-problem" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Problem</a>
+          <a href="#methods" id="nav-methods" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Methods</a>
+          <a href="#findings" id="nav-findings" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Findings</a>
+          <a href="#recommendations" id="nav-recommendations" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Recommendations</a>
+          <a href="#impact" id="nav-impact" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Impact</a>
+          <a href="#publication" id="nav-publication" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Publication</a>
+        </nav>
+      </aside>
+
+      <!-- Main Sections -->
+      <section class="md:w-[80%] flex-1 space-y-20" aria-label="Main Article Content">
+        <section id="problem" class="md:flex gap-x-12" role="region" aria-labelledby="problem-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="problem-heading" class="text-2xl font-semibold mt-6">Problem</h2>
+           <p>Live captioning is very cognitively demanding-- self-reported measures found captioning to be more stressful than surgery</p>
+           <p>Automatic Speech Recognition has already replaced captioners in online meetings and post-production events</p>
+           <p>Broadcasting agencies and governments are not prepared for this inevitable shift</p>
+          </article>
+          <div class="md:w-[65%]">
+            <figure>
+              <video src="/videos/live_cc_issues.mp4" controls class="rounded-xl border w-full h-auto" aria-label="Problem diagram video" tabindex="0">
+                Your browser does not support the video tag.
+              </video>
+              <figcaption class="mt-2 text-sm text-gray-600">Live captioning is intense-- can you spot the multiple mistakes made by professional captioners?</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="methods" class="md:flex gap-x-12" role="region" aria-labelledby="methods-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="methods-heading" class="text-2xl font-semibold">Methods</h2>
+            <p>Applied knowledge from psychology, cognitive science, computer science and industrial engineering to 
+              conduct a study where captioners supervised AI to write captions rather than working alone</p>
+            <p>Mixed-methods approach with 21 captioners using NASA-TLX, System Usability Scale, 
+              Nielsen-Norman Satisfaction Scale, Trust in Automation Scale and qualitative interviews</p>
+            <p>Time-series-- 3 sessions spaced 24 hours apart to allow for learning</p>
+            <p>Controlled environment and pre-screened for familiarity</p>
+            <p>Two independent groups: Novices and Experts-- controlled for skill level</p>
+          </article>
+          <div class="md:w-[65%]">
+            <figure>
+            <img src="/images/methods.png" alt="Research Methods" class="rounded-xl border w-full h-auto" />
+            <figcaption class="mt-2 text-sm text-gray-600">Used a cross-disciplinary approach to develop measurements for 14 constructs 
+              in the Human Autonomy System Oversight model (which until now was theoretical).</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="findings" class="md:flex gap-x-12" role="region" aria-labelledby="findings-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="findings-heading" class="text-2xl font-semibold">Findings</h2>
+          <p>Mitigating fear is about expectation management</p>
+          <p>Captioners desire more control over AI</p>
+          <p>AI reduced physical and mental workload over just 3 sessions spaced 24 hours apart</p>
+          </article>
+          <div class="md:w-[65%]">
+            <figure>
+            <img src="/images/findings.png" alt="Findings" class="rounded-xl border w-full h-auto" />
+            <figcaption class="mt-2 text-sm text-gray-600">Saw a statistically significant reduction in mental workload, 
+              which led me to test and discover relationships not present in the original model.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="recommendations" class="md:flex gap-x-12" role="region" aria-labelledby="recommendations-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="recommendations-heading" class="text-2xl font-semibold">Recommendations</h2>
+            <p>Human benefit from control over AI</p>
+            <p>Even if AI can automate the job, manual control should be relegated</p>
+            <p>Scheduling is one recommended solution</p>
+            <p>Another is interface based (see Design Mock-up from the side menu)</p>
+          </article>
+          <div class="md:w-[65%]">
+            <figure>
+            <img src="/images/loa.png" alt="Recommendations" class="rounded-xl border w-full h-auto" />
+            <figcaption class="mt-2 text-sm text-gray-600">Based on rigorous analysis, I suggested a model where control and automation is adaptive to user needs. 
+              This has far-reaching implications for human use over AI.
+            </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="impact" class="md:flex gap-x-12" role="region" aria-labelledby="impact-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="impact-heading" class="text-2xl font-semibold">Impact</h2>
+            <p>Led the only study on captioners supervising AI in the world</p>
+            <p>Discovered new relationships between Human-AI constructs and made novel contributions</p>
+            <p>Suggested new directions of research for human automation research.</p>
+          </article>
+          <div class="md:w-[65%]">
+            <figure>
+            <img src="/images/impact.png" alt="Impact" class="rounded-xl border w-full h-auto" />
+              <figcaption class="mt-2 text-sm text-gray-600">I discovered three new relationships which better explain Human-AI Interaction contrary to theory.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="publication" class="md:flex gap-x-12" role="region" aria-labelledby="publication-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="publication-heading" class="text-2xl font-semibold">Presentation</h2>
+            <p>The culmination of my work was presented to key stakeholders, including the CEOs of 3PlayMedia 
+              and ScribeWire, representatives from broadcasters and providers (i.e Rogers) and advocacy groups</p>
+            <p>Successfully defended at Toronto Metropolitan University</p>
+          </article>
+          <div class="md:w-[65%]">
+            <figure>
+              <iframe
+                src="/docs/ai-captioning-presentation.pdf"
+                class="w-full h-[360px] rounded-xl border"
+                title="Thesis Defense"
+              ></iframe>
+              <figcaption class="mt-2 text-sm text-gray-600">Thesis presentation delivered to my defense committee.</figcaption>
+            </figure>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    /* ----------------------------------------------
+       Deterministic scroll‑sync for sidebar links
+       ---------------------------------------------- */
+    const sectionIds = [
+      "problem",
+      "methods",
+      "findings",
+      "recommendations",
+      "impact",
+      "publication",
+    ];
+    // Dynamically compute sticky header height
+    const headerEl = document.querySelector('section.sticky');
+    function getHeaderHeight() {
+      return headerEl ? headerEl.getBoundingClientRect().height : 0;
+    }
+    const sidebarLinks = sectionIds.map(id => ({
+      id,
+      link: document.getElementById(`nav-${id}`),
+      section: document.getElementById(id),
+    }));
+
+    function highlight(id) {
+      sidebarLinks.forEach(({ link, id: linkId }) => {
+        if (!link) return;
+        const active = id === linkId;
+        link.classList.toggle("text-black", active);
+        link.classList.toggle("font-semibold", active);
+        link.classList.toggle("text-gray-600", !active);
+      });
+    }
+
+    /* Throttled scroll handler via rAF */
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const vh = window.innerHeight;
+        const hh = getHeaderHeight();
+        let closest = sidebarLinks[0];
+        let minDist = Infinity;
+
+        sidebarLinks.forEach(obj => {
+          const rect = obj.section?.getBoundingClientRect();
+          if (!rect) return;
+          // distance of section’s center to viewport center
+          const centerY = rect.top + rect.height / 2;
+          const dist = Math.abs(centerY - (vh / 2));
+          if (dist < minDist) {
+            minDist = dist;
+            closest = obj;
+          }
+        });
+
+        highlight(closest.id);
+        ticking = false;
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      highlight("problem"); // initial highlight
+      // window.addEventListener("scroll", onScroll, { passive: true });
+    });
+  </script>
+</Layout>
