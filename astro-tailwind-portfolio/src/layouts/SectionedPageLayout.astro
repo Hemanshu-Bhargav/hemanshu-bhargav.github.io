@@ -1,0 +1,35 @@
+---
+// src/layouts/SectionedPageLayout.astro
+import Layout from './Layout.astro';
+import SectionSidebar, { type SectionItem } from '../components/SectionSidebar.astro';
+
+interface Props {
+  title: string;
+  sections?: SectionItem[];
+}
+
+const { title, sections } = Astro.props;
+const headerId = 'page-title-header';
+---
+
+<Layout>
+  <header
+    id={headerId}
+    class="fixed top-16 inset-x-0 z-20 bg-white shadow-sm px-6 py-4"
+  >
+    <div class="max-w-screen-2xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold">{title}</h1>
+    </div>
+  </header>
+
+  <main class="pt-36 px-6 pb-16 max-w-screen-2xl mx-auto min-h-screen">
+    <!-- Omit `items-start` so `<aside>` stretches to the full height of the article column -->
+    <div class="md:flex gap-6">
+      <SectionSidebar sections={sections} headerId={headerId} />
+
+      <section class="flex-1 min-w-0 space-y-24" aria-label="Main Article Content">
+        <slot />
+      </section>
+    </div>
+  </main>
+</Layout>

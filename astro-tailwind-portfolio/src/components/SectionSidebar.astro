@@ -1,0 +1,162 @@
+---
+// src/components/SectionSidebar.astro
+export interface SectionItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  sections?: SectionItem[];
+  headerId?: string;
+}
+
+const {
+  sections = [
+    { id: 'problem', label: 'Problem' },
+    { id: 'methods', label: 'Methods' },
+    { id: 'findings', label: 'Findings' },
+    { id: 'recommendations', label: 'Recommendations' },
+    { id: 'impact', label: 'Impact' },
+    { id: 'publication', label: 'Presentation' },
+  ],
+  headerId = 'page-title-header',
+} = Astro.props;
+---
+
+<aside
+  class="hidden md:block md:w-44 shrink-0 text-sm font-medium"
+  role="complementary"
+  aria-label="Section Navigation"
+  data-section-sidebar
+  data-header-id={headerId}
+>
+  <nav
+    class="sticky top-40 relative pl-3 border-l border-gray-200 space-y-2"
+    aria-label="Sidebar Navigation"
+  >
+    <span
+      data-scroll-indicator
+      aria-hidden="true"
+      class="absolute -left-[2px] top-0 h-7 w-[3px] rounded-full bg-indigo-600 transition-transform duration-150 ease-out"
+    ></span>
+
+    {
+      sections.map(({ id, label }) => (
+        <a
+          href={`#${id}`}
+          data-nav-target={id}
+          class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1 transition-colors"
+        >
+          {label}
+        </a>
+      ))
+    }
+  </nav>
+</aside>
+
+<script>
+  function initSectionSidebars() {
+    const sidebars = document.querySelectorAll<HTMLElement>('[data-section-sidebar]');
+
+    sidebars.forEach((sidebar) => {
+      if (sidebar.dataset.initialized === 'true') return;
+      sidebar.dataset.initialized = 'true';
+
+      const headerId = sidebar.dataset.headerId || 'page-title-header';
+      const headerEl = document.getElementById(headerId);
+      const indicatorEl = sidebar.querySelector<HTMLElement>('[data-scroll-indicator]');
+      const links = Array.from(sidebar.querySelectorAll<HTMLAnchorElement>('[data-nav-target]'));
+
+      const sectionEntries = links
+        .map((link) => {
+          const id = link.dataset.navTarget || '';
+          return {
+            id,
+            link,
+            section: document.getElementById(id),
+          };
+        })
+        .filter((entry) => entry.section !== null);
+
+      if (sectionEntries.length === 0) return;
+
+      function getHeaderBottomOffset() {
+        if (!headerEl) return 0;
+        const rect = headerEl.getBoundingClientRect();
+        return Math.max(0, rect.bottom);
+      }
+
+      function syncIndicatorToLink(activeLink: HTMLAnchorElement | null) {
+        if (!indicatorEl || !activeLink || !activeLink.parentElement) return;
+        const navRect = activeLink.parentElement.getBoundingClientRect();
+        const linkRect = activeLink.getBoundingClientRect();
+        const offsetY = linkRect.top - navRect.top;
+        indicatorEl.style.height = `${linkRect.height}px`;
+        indicatorEl.style.transform = `translateY(${offsetY}px)`;
+      }
+
+      function setActiveSection(activeId: string) {
+        let activeLink: HTMLAnchorElement | null = null;
+
+        sectionEntries.forEach(({ link, id }) => {
+          const isActive = id === activeId;
+
+          if (isActive) {
+            activeLink = link;
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+
+          link.classList.toggle('text-indigo-700', isActive);
+          link.classList.toggle('text-black', isActive);
+          link.classList.toggle('font-semibold', isActive);
+          link.classList.toggle('text-gray-600', !isActive);
+        });
+
+        syncIndicatorToLink(activeLink);
+      }
+
+      function resolveFocusedSectionId(): string {
+        const topOffset = getHeaderBottomOffset();
+        const focusLine = topOffset + (window.innerHeight - topOffset) * 0.3;
+
+        const atPageBottom =
+          window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 24;
+        if (atPageBottom) {
+          return sectionEntries[sectionEntries.length - 1].id;
+        }
+
+        let focusedId = sectionEntries[0].id;
+        for (const { id, section } of sectionEntries) {
+          if (!section) continue;
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= focusLine) {
+            focusedId = id;
+          } else {
+            break;
+          }
+        }
+
+        return focusedId;
+      }
+
+      let frameScheduled = false;
+      function scheduleScrollSync() {
+        if (frameScheduled) return;
+        frameScheduled = true;
+        window.requestAnimationFrame(() => {
+          setActiveSection(resolveFocusedSectionId());
+          frameScheduled = false;
+        });
+      }
+
+      setActiveSection(resolveFocusedSectionId());
+      window.addEventListener('scroll', scheduleScrollSync, { passive: true });
+      window.addEventListener('resize', scheduleScrollSync, { passive: true });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initSectionSidebars);
+  document.addEventListener('astro:page-load', initSectionSidebars);
+</script>
