@@ -7,9 +7,9 @@ import Layout from '../layouts/Layout.astro';
     <!-- Sticky Page Title -->
     <section class="sticky top-24 bg-white z-10 px-6 py-4 border-b shadow-sm pointer-events-none">
       <div class="max-w-7xl mx-auto pointer-events-auto">
-        <h1 class="text-3xl md:text-4xl font-bold">Tecla Voice Assistant: Automatic Speech Recogition for Quadriplegics</h1>
+        <h1 class="text-3xl md:text-4xl font-bold">Machine Learning for Speech Disorders</h1>
         <p class="text-gray-600 text-base md:text-lg mt-1">
-          A novel interface solution for those with motor, neurological and articulatory speech disorders
+          Producing novel machine learning research for those with motor, neurological and articulatory speech disorders
         </p>
       </div>
     </section>
@@ -18,6 +18,7 @@ import Layout from '../layouts/Layout.astro';
       <!-- Sidebar -->
       <aside class="hidden md:block md:w-[20%] text-sm font-medium space-y-3 self-start sticky top-[4.25rem] pt-0" role="complementary" aria-label="Section Navigation">
         <nav class="space-y-2" aria-label="Sidebar Navigation">
+          <a href="#preamble" id="nav-problem" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Preamble</a>
           <a href="#problem" id="nav-problem" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Problem</a>
           <a href="#methods" id="nav-methods" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Methods</a>
           <a href="#findings" id="nav-findings" class="block text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1" role="link">Findings</a>
@@ -27,45 +28,38 @@ import Layout from '../layouts/Layout.astro';
       </aside>
 
       <!-- Main Sections -->
+
       <section class="md:w-[80%] flex-1 space-y-20" aria-label="Main Article Content">
+        <section id="premable" class="md:flex gap-x-12" role="region" aria-labelledby="preamble-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="problem-heading" class="text-2xl font-semibold mt-6">Preamble</h2>
+            <p>In my "ASR for Dysarthria" project I outlined an interface solution to the problems that quadriplegics face.</p>
+            <p>Please navigate to that project from the drop-down as it was the preliminary work for this one.</p>
+            <p>This solution was limited to current state-of-art which is ineffective.</p>
+          </article>
+          <div class="md:w-[65%]">
+          <img src="/images/ml-grid.png" alt="Background Information: Pictoral grid showing current ASR systems are lacking" class="rounded-xl border w-full h-auto" />
+          </div>
+        </section>
+
         <section id="problem" class="md:flex gap-x-12" role="region" aria-labelledby="problem-heading" tabindex="0">
           <article class="md:w-[35%] space-y-6">
             <h2 id="problem-heading" class="text-2xl font-semibold mt-6">Problem</h2>
-            <p>
-              Quadriplegics are individuals with little to no movement in all four limbs and their fingers.
-            </p>
-            <p>
-              As such, they rely on single-swtich devices to operate technology
-            </p>
-            <p>
-              However, telephone functions are often time-sensitive (i.e. Carriers will force calls to voicemail after 6 rings),
-              which is too fast for quadriplegics to answer using single-swtich devices
-            </p>
+            <p>Dysarthric speech has more diffuse regions than non-disordered speech, so generic voice assistants like Alexa and Siri do not recognize voice commands</p>
           </article>
           <div class="md:w-[65%]">
-            <iframe
-              src="https://www.youtube.com/embed/0SChphvFTSg"
-              title="Basic Introduction to Switch Control"
-              class="rounded-xl border w-full h-auto aspect-video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen>
-            </iframe>
+          <img src="/images/ml-problem.png" alt="Waveform image showing sysarthric speech has more diffuse regions than non-disordered speech" class="rounded-xl border w-full h-auto" />
           </div>
         </section>
 
         <section id="methods" class="md:flex gap-x-12" role="region" aria-labelledby="methods-heading" tabindex="0">
           <article class="md:w-[35%] space-y-6">
             <h2 id="methods-heading" class="text-2xl font-semibold">Methods</h2>
-             <p>
-              Proposed use of Automatic Speech Recogntiion, specifically Wake-Word detection
-            </p>
-            <p>
-              Quadriplegics speak slower than those without disordered speech, but they can speak faster than they can use single-switch devices
-            </p>
+            <p>Voice assistants use transformers trained on massive datasets, but the amount of training data for dysarthric speech is insufficient</p>
           </article>
+          <!-- Need to replace this with a table for accessibility -->
           <div class="md:w-[65%]">
-            <img src="/images/asr-methods.png" alt="Research Methods" class="rounded-xl border w-full h-auto" />
+            <img src="/images/ml-methods.png" alt="Outline of training data provided by different datasets" class="rounded-xl border w-full h-auto" />
           </div>
         </section>
 
@@ -73,52 +67,58 @@ import Layout from '../layouts/Layout.astro';
           <article class="md:w-[35%] space-y-6">
             <h2 id="findings-heading" class="text-2xl font-semibold">Process</h2>
              <p>
-              Train individual users' speech to create custom voice commands (wake-words) to operate telephone services
+              Proposed a two-stage training process (fine-tuning a speech-based Large Language Model like ChatGPT) and wake-word detection process
             </p>
           </article>
           <div class="md:w-[65%]">
-            <img src="/images/asr-process.png" alt="Process" class="rounded-xl border w-full h-auto" />
+            <img src="/images/ml-process.png" alt="Process" class="rounded-xl border w-full h-auto" />
           </div>
         </section>
 
         <section id="recommendations" class="md:flex gap-x-12" role="region" aria-labelledby="recommendations-heading" tabindex="0">
           <article class="md:w-[35%] space-y-6">
-            <h2 id="recommendations-heading" class="text-2xl font-semibold">Demo</h2>
-             <p>
-              A demonstration of the single-switch accessible voice web application I independently developed
-            </p>
+            <h2 id="recommendations-heading" class="text-2xl font-semibold">Recommendations</h2>
+             <p>Collected the largest dataset of dysarthric speech and used SpeechBrain to train on the latest transformers.</p>
+             <p>Training revealed that the tranformer could not converge on keyword spotting.</p>
+             <p>Alternatively, tried merging samples to create longer tokens, but this reduced the number of observations preventing learning.</p>
           </article>
           <div class="md:w-[65%]">
-            <video
-              id="demo-video"
-              src="/videos/asr-demo.mp4"
-              controls
-              onloadedmetadata="this.playbackRate=0.5"
-              class="rounded-xl border w-full h-auto"
-              aria-label="Web App Demonstration"
-              tabindex="0">
-              Your browser does not support the video tag.
-            </video>
+            <img src="/images/ml-speechbrain.png" alt="Logo of Transformer library used" class="rounded-xl border w-full h-auto" />
           </div>
         </section>
 
         <section id="publication" class="md:flex gap-x-12" role="region" aria-labelledby="publication-heading" tabindex="0">
           <article class="md:w-[35%] space-y-6">
-            <h2 id="publication-heading" class="text-2xl font-semibold">Publication</h2>
+            <h2 id="publication-heading" class="text-2xl font-semibold">Publication 1</h2>
              <p>
-              Academic publication disseminating my research-- presented at the International Conference on Helping People with special
-              Needs 2020
+              Literature Review conducted summarizing research and surverying state-of-the-art for Automatic Speech Recognition.
             </p>
           </article>
           <div class="md:w-[65%]">
             <iframe
-              src="/docs/asr-icchp.pdf"
+              src="/docs/ml_asr_yrc.pdf"
               class="w-full h-[720px] rounded-xl border"
-              title="Tecla Sound PDF"
+              title="Literature Review of Automatic Speech Recongition"
             ></iframe>
           </div>
         </section>
-      </section>
+
+          <section id="publication" class="md:flex gap-x-12" role="region" aria-labelledby="publication-heading" tabindex="0">
+          <article class="md:w-[35%] space-y-6">
+            <h2 id="publication-heading" class="text-2xl font-semibold">Publication 2</h2>
+             <p>
+              Academic publication disseminating my research-- presented at the Young Researchers Consoritum (ICCHP-AATE) 2022.
+            </p>
+          </article>
+
+          <div class="md:w-[65%]">
+            <iframe
+              src="/docs/ml_asr_lit_review.pdf"
+              class="w-full h-[720px] rounded-xl border"
+              title="Young Researchers Consortium Publication"
+            ></iframe>
+          </div>
+        </section>
     </div>
   </main>
 
