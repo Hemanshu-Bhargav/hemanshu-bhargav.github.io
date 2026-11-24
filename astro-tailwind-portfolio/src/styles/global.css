@@ -19,3 +19,36 @@
 body {
     @apply bg-white text-black font-sans;
   }
+
+@keyframes sectionLift {
+  from {
+    transform: translateY(0);
+    box-shadow: 0 0 0 0 rgb(0 0 0 / 0);
+  }
+  to {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.12);
+  }
+}
+
+section[id] {
+  border-radius: 0.75rem;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+@media (hover: hover) {
+  section[id]:hover {
+    animation: sectionLift 220ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  section[id] {
+    transition: none;
+  }
+
+  section[id]:hover {
+    animation: none;
+    transform: none;
+  }
+}
