@@ -14,11 +14,16 @@
   .heading-md {
     @apply text-2xl font-semibold;
   }
+
+  /* Shared h1 class aligned with the sidebar text position */
+  .sectioned-page-title {
+    @apply text-3xl md:text-4xl font-bold pl-5;
+  }
 }
 
 body {
-    @apply bg-white text-black font-sans;
-  }
+  @apply bg-white text-black font-sans;
+}
 
 @keyframes sectionLift {
   from {
@@ -32,8 +37,15 @@ body {
 }
 
 section[id] {
+  padding: 1.5rem;
   border-radius: 0.75rem;
   transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+@media (min-width: 768px) {
+  section[id] {
+    padding: 2rem;
+  }
 }
 
 @media (hover: hover) {

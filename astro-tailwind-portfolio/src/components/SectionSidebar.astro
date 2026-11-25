@@ -1,13 +1,15 @@
 ---
 // src/components/SectionSidebar.astro
+// Reusable section index sidebar with deterministic scroll-position highlighting.
+
 export interface SectionItem {
-  id: string;
-  label: string;
+  id: string;    // Must match the `id` attribute of the target `<section>` on the page
+  label: string; // Visible navigation text rendered in the sidebar link
 }
 
 interface Props {
-  sections?: SectionItem[];
-  headerId?: string;
+  sections?: SectionItem[]; // Custom section list per page; defaults to standard sections
+  headerId?: string;         // ID of the fixed title header used to offset focus calculations
 }
 
 const {
@@ -23,6 +25,7 @@ const {
 } = Astro.props;
 ---
 
+<!-- Hidden on small screens; stretches with the parent flex row on desktop (`md:w-44 shrink-0`) -->
 <aside
   class="hidden md:block md:w-44 shrink-0 text-sm font-medium"
   role="complementary"
@@ -30,16 +33,19 @@ const {
   data-section-sidebar
   data-header-id={headerId}
 >
+  <!-- `sticky top-40` keeps the index tracking alongside scrolling content below the fixed header -->
   <nav
     class="sticky top-40 relative pl-3 border-l border-gray-200 space-y-2"
     aria-label="Sidebar Navigation"
   >
+    <!-- Vertical accent bar moved/resized via transform and height in the script below -->
     <span
       data-scroll-indicator
       aria-hidden="true"
       class="absolute -left-[2px] top-0 h-7 w-[3px] rounded-full bg-indigo-600 transition-transform duration-150 ease-out"
     ></span>
 
+    <!-- Render an anchor link for each configured section -->
     {
       sections.map(({ id, label }) => (
         <a
@@ -55,10 +61,12 @@ const {
 </aside>
 
 <script>
+  // Initializes scroll-sync behavior for all sidebar instances on the current page
   function initSectionSidebars() {
     const sidebars = document.querySelectorAll<HTMLElement>('[data-section-sidebar]');
 
     sidebars.forEach((sidebar) => {
+      // Guard against duplicate event listeners across page loads or Astro transitions
       if (sidebar.dataset.initialized === 'true') return;
       sidebar.dataset.initialized = 'true';
 
@@ -67,6 +75,7 @@ const {
       const indicatorEl = sidebar.querySelector<HTMLElement>('[data-scroll-indicator]');
       const links = Array.from(sidebar.querySelectorAll<HTMLAnchorElement>('[data-nav-target]'));
 
+      // Pair each nav link with its DOM section and drop any IDs absent from this page
       const sectionEntries = links
         .map((link) => {
           const id = link.dataset.navTarget || '';
@@ -80,12 +89,14 @@ const {
 
       if (sectionEntries.length === 0) return;
 
+      // Returns the bottom edge of the fixed header so focus detection stays below it
       function getHeaderBottomOffset() {
         if (!headerEl) return 0;
         const rect = headerEl.getBoundingClientRect();
         return Math.max(0, rect.bottom);
       }
 
+      // Aligns the vertical indicator bar's height and vertical offset with the active link
       function syncIndicatorToLink(activeLink: HTMLAnchorElement | null) {
         if (!indicatorEl || !activeLink || !activeLink.parentElement) return;
         const navRect = activeLink.parentElement.getBoundingClientRect();
@@ -95,6 +106,7 @@ const {
         indicatorEl.style.transform = `translateY(${offsetY}px)`;
       }
 
+      // Updates active classes, `aria-current`, and indicator position for the focused section
       function setActiveSection(activeId: string) {
         let activeLink: HTMLAnchorElement | null = null;
 
@@ -117,16 +129,19 @@ const {
         syncIndicatorToLink(activeLink);
       }
 
+      // Deterministically picks the active section based on a focus line below the header
       function resolveFocusedSectionId(): string {
         const topOffset = getHeaderBottomOffset();
         const focusLine = topOffset + (window.innerHeight - topOffset) * 0.3;
 
+        // Snap to the last section when scrolled near the bottom of the document
         const atPageBottom =
           window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 24;
         if (atPageBottom) {
           return sectionEntries[sectionEntries.length - 1].id;
         }
 
+        // Otherwise pick the last section whose top has passed above the focus line
         let focusedId = sectionEntries[0].id;
         for (const { id, section } of sectionEntries) {
           if (!section) continue;
@@ -141,6 +156,7 @@ const {
         return focusedId;
       }
 
+      // Throttle scroll/resize updates to at most once per animation frame
       let frameScheduled = false;
       function scheduleScrollSync() {
         if (frameScheduled) return;
@@ -151,12 +167,14 @@ const {
         });
       }
 
+      // Run an initial sync on mount and listen to scroll and resize events
       setActiveSection(resolveFocusedSectionId());
       window.addEventListener('scroll', scheduleScrollSync, { passive: true });
       window.addEventListener('resize', scheduleScrollSync, { passive: true });
     });
   }
 
+  // Support both initial DOM load and Astro client-side navigation (`astro:page-load`)
   document.addEventListener('DOMContentLoaded', initSectionSidebars);
   document.addEventListener('astro:page-load', initSectionSidebars);
 </script>
