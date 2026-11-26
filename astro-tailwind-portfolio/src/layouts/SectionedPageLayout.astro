@@ -27,9 +27,137 @@ const headerId = 'page-title-header';
     <div class="md:flex gap-6">
       <SectionSidebar sections={sections} headerId={headerId} />
 
-      <section class="flex-1 min-w-0 space-y-24" aria-label="Main Article Content">
+      <section class="sectioned-content flex-1 min-w-0 space-y-24" aria-label="Main Article Content">
         <slot />
       </section>
     </div>
   </div>
 </Layout>
+
+<style>
+  /* 1. Convert each case-study section to CSS Grid */
+  .sectioned-content > :global(section) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  @media (min-width: 768px) {
+    .sectioned-content > :global(section) {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 13fr); /* 35% / 65% */
+      gap: 2.5rem;
+    }
+  }
+
+  /* Reset legacy Tailwind md:w-[35%] / md:w-[65%] so children fill their grid tracks */
+  .sectioned-content > :global(section > article),
+  .sectioned-content > :global(section > div) {
+    width: 100%;
+    min-width: 0;
+    margin-top: 0;
+  }
+
+  /* 2. Text Surface — invisible at rest, reveals on hover */
+  .sectioned-content > :global(section > article) {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: none;
+    transition:
+      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 220ms ease,
+      border-color 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  /* 3. Media Grid (stacks media + caption cleanly) */
+  .sectioned-content :global(figure) {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    height: 100%;
+    margin: 0;
+  }
+
+  /* Media Surface — keeps its existing resting look, lifts on hover */
+  .sectioned-content :global(figure > img),
+  .sectioned-content :global(figure > video),
+  .sectioned-content :global(figure > iframe) {
+    border-radius: 1rem;
+    box-shadow: none;
+    transition:
+      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  /* 4. Figure Caption — blends in at rest, reveals on hover */
+  .sectioned-content :global(figcaption) {
+    margin-top: 0;
+    padding: 0.5rem 0.75rem;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    box-shadow: none;
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      color 200ms ease;
+  }
+
+  /* Hover & keyboard focus states (pointer devices only for hover) */
+  @media (hover: hover) {
+    .sectioned-content > :global(section > article:hover) {
+      transform: translateY(-4px);
+      background-color: #ffffff;
+      border-color: #bae6fd; /* sky-200 */
+      box-shadow: 0 12px 24px -8px rgb(2 132 199 / 0.14), 0 4px 8px -4px rgb(0 0 0 / 0.06);
+    }
+
+    .sectioned-content :global(figure > img:hover),
+    .sectioned-content :global(figure > video:hover),
+    .sectioned-content :global(figure > iframe:hover) {
+      transform: translateY(-4px);
+      border-color: #bae6fd; /* sky-200 */
+      box-shadow: 0 12px 24px -8px rgb(2 132 199 / 0.14), 0 4px 8px -4px rgb(0 0 0 / 0.06);
+    }
+
+    .sectioned-content :global(figcaption:hover) {
+      transform: translateY(-2px);
+      background-color: #f0f9ff; /* sky-50 */
+      border-color: #bae6fd; /* sky-200 */
+      color: #0f172a; /* slate-900 */
+      box-shadow: 0 6px 14px -4px rgb(2 132 199 / 0.12);
+    }
+  }
+
+  .sectioned-content > :global(section > article:focus-within),
+  .sectioned-content :global(figure > video:focus-visible) {
+    background-color: #ffffff;
+    border-color: #38bdf8; /* sky-400 */
+    box-shadow: 0 12px 24px -8px rgb(2 132 199 / 0.16);
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .sectioned-content > :global(section > article),
+    .sectioned-content :global(figure > img),
+    .sectioned-content :global(figure > video),
+    .sectioned-content :global(figure > iframe),
+    .sectioned-content :global(figcaption) {
+      transition: none;
+    }
+
+    .sectioned-content > :global(section > article:hover),
+    .sectioned-content :global(figure > img:hover),
+    .sectioned-content :global(figure > video:hover),
+    .sectioned-content :global(figure > iframe:hover),
+    .sectioned-content :global(figcaption:hover) {
+      transform: none;
+    }
+  }
+</style>

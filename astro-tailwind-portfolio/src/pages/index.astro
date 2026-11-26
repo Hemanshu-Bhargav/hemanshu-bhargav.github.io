@@ -36,41 +36,41 @@ const highlights = [
 ---
 
 <Layout>
-  <div class="min-h-[calc(100vh-3rem)] pt-16 pb-8 px-4 max-w-7xl mx-auto flex items-center justify-center">
+  <div class="min-h-[calc(100dvh-3rem)] pt-14 max-w-6xl mx-auto flex items-center justify-center">
     <!-- Intro Section -->
     <section
       role="region"
       aria-labelledby="intro-heading"
       tabindex="0"
-      class="w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-12"
+      class="w-full flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8 lg:gap-12"
     >
       <!-- Profile Image (anchored to top on desktop so chip expansion never shifts it) -->
-      <div class="flex-shrink-0 md:mt-6">
+      <div class="flex-shrink-0 lg:mt-6">
         <img
           src="images/window_shot.jpg"
           alt="Hemanshu Bhargav"
-          class="w-80 h-80 md:w-96 md:h-96 rounded-full object-cover object-[90%_100%] shadow-lg"
+          class="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full object-cover object-[90%_100%] shadow-lg"
         />
       </div>
 
-      <!-- About (`md:min-h-[38rem]` reserves space below icons so vertical centering never shifts on chip expand) -->
-      <article class="max-w-2xl md:min-h-[38rem]">
+      <!-- About (`lg:min-h-[36rem]` reserves space below icons so vertical centering never shifts on chip expand) -->
+      <article class="w-full max-w-2xl text-center lg:text-left lg:min-h-[36rem]">
         <h1 id="intro-heading" class="text-4xl md:text-5xl font-bold mb-6">Hi, I'm Hemanshu 👋</h1>
         <div class="text-xl font-semibold leading-tight mb-4">
-          <div class="flex flex-wrap gap-x-2 mt-1">
+          <div class="flex flex-wrap justify-center lg:justify-start gap-x-2 mt-1">
             <span>Senior UX Researcher,</span>
             <span>Lecturer, and</span>
             <span>AI/ML Scientist</span>
           </div>
         </div>
-        <p class="text-lg md:text-lg leading-relaxed text-gray-700 mb-6">
+        <p class="text-base sm:text-lg leading-relaxed text-gray-700 mb-6">
           I holisitcally merge the quantiative and qualitative 
           for a complete view of product strategy. I have a rigorous background in Machine Learning, designing accessible 
           product interfaces and managing conflicting priorities.
           My expertise was recognized with an exceptional promotion to Professor/Lecturer at Toronto 
           Metropolitan University.
         </p>
-        <p class="text-lg md:text-lg leading-relaxed text-gray-700 mb-6">
+        <p class="text-base sm:text-lg leading-relaxed text-gray-700 mb-6">
           <a
             href="https://github.com/Hemanshu-Bhargav/hemanshu-bhargav.github.io"
             class="underline text-gray-700 hover:text-gray-900"
@@ -108,7 +108,7 @@ const highlights = [
         </ul>
 
         <!-- Social Media Icons (inline brand colors, no external icon libraries) -->
-        <div role="region" aria-label="Social Media Links" class="mt-6 flex gap-6 items-center text-2xl">
+        <div role="region" aria-label="Social Media Links" class="mt-6 flex justify-center lg:justify-start gap-6 items-center text-2xl">
           <!-- LinkedIn (#0A66C2) -->
           <a
             href="https://www.linkedin.com/in/hemanshu-bhargav-6585ab1b1/"
