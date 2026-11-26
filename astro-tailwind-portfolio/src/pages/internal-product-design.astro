@@ -16,7 +16,7 @@ const sections: SectionItem[] = [
   <!-- Problem -->
   <section
     id="problem"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="problem-heading"
     tabindex="0"
@@ -34,12 +34,12 @@ const sections: SectionItem[] = [
         which is too fast for quadriplegics to answer using single-swtich devices
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <iframe
           src="https://www.youtube.com/embed/0SChphvFTSg"
           title="Basic Introduction to Switch Control"
-          class="rounded-xl border w-full h-auto aspect-video"
+          class="rounded-xl border w-full h-auto aspect-video md:flex-1 md:min-h-0 md:h-full md:aspect-auto"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
@@ -51,7 +51,7 @@ const sections: SectionItem[] = [
   <!-- Methods -->
   <section
     id="methods"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="methods-heading"
     tabindex="0"
@@ -65,9 +65,13 @@ const sections: SectionItem[] = [
         Quadriplegics speak slower than those without disordered speech, but they can speak faster than they can use single-switch devices
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
-        <img src="/images/asr-methods.png" alt="Research Methods" class="rounded-xl border w-full h-auto" />
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/asr-methods.png"
+          alt="Research Methods"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
       </figure>
     </div>
   </section>
@@ -75,7 +79,7 @@ const sections: SectionItem[] = [
   <!-- Process -->
   <section
     id="findings"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="findings-heading"
     tabindex="0"
@@ -86,9 +90,13 @@ const sections: SectionItem[] = [
         Train individual users' speech to create custom voice commands (wake-words) to operate telephone services
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
-        <img src="/images/asr-process.png" alt="Process" class="rounded-xl border w-full h-auto" />
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/asr-process.png"
+          alt="Process"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
       </figure>
     </div>
   </section>
@@ -96,7 +104,7 @@ const sections: SectionItem[] = [
   <!-- Demo -->
   <section
     id="recommendations"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="recommendations-heading"
     tabindex="0"
@@ -107,14 +115,14 @@ const sections: SectionItem[] = [
         A demonstration of the single-switch accessible voice web application I independently developed
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <video
           id="demo-video"
           src="/videos/asr-demo.mp4"
           controls
           onloadedmetadata="this.playbackRate=0.5"
-          class="rounded-xl border w-full h-auto"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
           aria-label="Web App Demonstration"
           tabindex="0"
         >
@@ -127,7 +135,7 @@ const sections: SectionItem[] = [
   <!-- Publication -->
   <section
     id="publication"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="publication-heading"
     tabindex="0"
@@ -139,11 +147,11 @@ const sections: SectionItem[] = [
         Needs 2020
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <iframe
           src="/docs/asr-icchp.pdf"
-          class="w-full h-[720px] rounded-xl border"
+          class="w-full h-[720px] md:flex-1 md:min-h-0 md:h-full rounded-xl border"
           title="Tecla Sound PDF"
         ></iframe>
       </figure>

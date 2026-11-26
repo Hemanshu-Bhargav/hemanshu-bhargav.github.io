@@ -6,7 +6,7 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
 <SectionedPageLayout title="Human-AI Interaction">
   <section
     id="problem"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="problem-heading"
     tabindex="0"
@@ -14,7 +14,7 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
     <article class="md:w-[35%] space-y-6">
       <h2 id="problem-heading" class="text-2xl font-semibold">Problem</h2>
       <p>
-        Live captioning is very cognitively demandin task, such that self-reported measures found captioning to be more stressful than
+        Live captioning is very cognitively demanding task, such that self-reported measures found captioning to be more stressful than
         surgery. To mitigate these demands and improve not just working conditions of live captioners in broadcast environments but also 
         viewing outcomes of Deaf and Hard-of-Hearing audiences, a paradigm shift was proposed. 
       </p>
@@ -27,18 +27,18 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
         first-hand experience serving Deaf and Hard-of-Hearing audiences. 
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <video
           src="/videos/live_cc_issues.mp4"
           controls
-          class="rounded-xl border w-full h-auto"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
           aria-label="Problem diagram video"
           tabindex="0"
         >
           Your browser does not support the video tag.
         </video>
-        <figcaption class="mt-2 text-sm text-gray-600">
+        <figcaption class="mt-2 shrink-0 text-sm text-gray-600">
           Live captioning is intense-- can you spot the multiple mistakes made by professional captioners?
         </figcaption>
       </figure>
@@ -47,14 +47,14 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
 
   <section
     id="methods"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="methods-heading"
     tabindex="0"
   >
     <article class="md:w-[35%] space-y-6">
       <h2 id="methods-heading" class="text-2xl font-semibold">Methods</h2>
-            <p>
+      <p>
         Modern LLMs are trained on massive datasets and act as probablistic engines-- they are biased towards the majority and choose 
         the most statistically likely token to output. Marginalized populations, such as Deaf and Hard-of-Hearing audiences, make up 
         a much smaller share of the data and their needs and voices are diminished by this probablistic reasoning so a Human-in-the-Loop 
@@ -77,10 +77,14 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
       <p>Controlled environment and pre-screened for familiarity</p>
       <p>Two independent groups: Novices and Experts-- controlled for skill level</p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
-        <img src="/images/methods.png" alt="Research Methods" class="rounded-xl border w-full h-auto" />
-        <figcaption class="mt-2 text-sm text-gray-600">
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/methods.png"
+          alt="Research Methods"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+        <figcaption class="mt-2 shrink-0 text-sm text-gray-600">
           Used a cross-disciplinary approach to develop measurements for 14 constructs in the Human Autonomy System
           Oversight model (which until now was theoretical).
         </figcaption>
@@ -90,7 +94,7 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
 
   <section
     id="findings"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="findings-heading"
     tabindex="0"
@@ -101,10 +105,14 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
       <p>Captioners desire more control over AI</p>
       <p>AI reduced physical and mental workload over just 3 sessions spaced 24 hours apart</p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
-        <img src="/images/findings.png" alt="Findings" class="rounded-xl border w-full h-auto" />
-        <figcaption class="mt-2 text-sm text-gray-600">
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/findings.png"
+          alt="Findings"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+        <figcaption class="mt-2 shrink-0 text-sm text-gray-600">
           Saw a statistically significant reduction in mental workload, which led me to test and discover relationships
           not present in the original model.
         </figcaption>
@@ -114,7 +122,7 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
 
   <section
     id="recommendations"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="recommendations-heading"
     tabindex="0"
@@ -126,10 +134,14 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
       <p>Scheduling is one recommended solution</p>
       <p>Another is interface based (see Design Mock-up from the side menu)</p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
-        <img src="/images/loa.png" alt="Recommendations" class="rounded-xl border w-full h-auto" />
-        <figcaption class="mt-2 text-sm text-gray-600">
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/loa.png"
+          alt="Recommendations"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+        <figcaption class="mt-2 shrink-0 text-sm text-gray-600">
           Based on rigorous analysis, I suggested a model where control and automation is adaptive to user needs. This
           has far-reaching implications for human use over AI.
         </figcaption>
@@ -139,7 +151,7 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
 
   <section
     id="impact"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="impact-heading"
     tabindex="0"
@@ -150,10 +162,14 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
       <p>Discovered new relationships between Human-AI constructs and made novel contributions</p>
       <p>Suggested new directions of research for human automation research.</p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
-        <img src="/images/impact.png" alt="Impact" class="rounded-xl border w-full h-auto" />
-        <figcaption class="mt-2 text-sm text-gray-600">
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/impact.png"
+          alt="Impact"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+        <figcaption class="mt-2 shrink-0 text-sm text-gray-600">
           I discovered three new relationships which better explain Human-AI Interaction contrary to theory.
         </figcaption>
       </figure>
@@ -162,7 +178,7 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
 
   <section
     id="publication"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="publication-heading"
     tabindex="0"
@@ -175,14 +191,14 @@ import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
       </p>
       <p>Successfully defended at Toronto Metropolitan University</p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <iframe
           src="/docs/ai-captioning-presentation.pdf"
-          class="w-full h-[360px] rounded-xl border"
+          class="w-full h-[360px] md:flex-1 md:min-h-0 md:h-full rounded-xl border"
           title="Thesis Defense"
         ></iframe>
-        <figcaption class="mt-2 text-sm text-gray-600">Thesis presentation delivered to my defense committee.</figcaption>
+        <figcaption class="mt-2 shrink-0 text-sm text-gray-600">Thesis presentation delivered to my defense committee.</figcaption>
       </figure>
     </div>
   </section>

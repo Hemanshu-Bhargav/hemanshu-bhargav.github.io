@@ -15,9 +15,9 @@
     @apply text-2xl font-semibold;
   }
 
-  /* Shared h1 class aligned with the sidebar text position */
+  /* Aligned with the start of the SectionSidebar link text (1px border + pl-3 + px-2) */
   .sectioned-page-title {
-    @apply text-3xl md:text-4xl font-bold pl-5;
+    @apply text-3xl md:text-4xl font-bold md:pl-[21px];
   }
 }
 

@@ -18,7 +18,7 @@ const sections: SectionItem[] = [
   <!-- Preamble -->
   <section
     id="preamble"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="preamble-heading"
     tabindex="0"
@@ -29,12 +29,12 @@ const sections: SectionItem[] = [
       <p>Please navigate to that project from the drop-down as it was the preliminary work for this one.</p>
       <p>This solution was limited to current state-of-art which is ineffective.</p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <img
           src="/images/ml-grid.png"
           alt="Background Information: Pictoral grid showing current ASR systems are lacking"
-          class="rounded-xl border w-full h-auto"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
         />
       </figure>
     </div>
@@ -43,7 +43,7 @@ const sections: SectionItem[] = [
   <!-- Problem -->
   <section
     id="problem"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="problem-heading"
     tabindex="0"
@@ -55,12 +55,12 @@ const sections: SectionItem[] = [
         Siri do not recognize voice commands
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <img
           src="/images/ml-problem.png"
           alt="Waveform image showing sysarthric speech has more diffuse regions than non-disordered speech"
-          class="rounded-xl border w-full h-auto"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
         />
       </figure>
     </div>
@@ -69,7 +69,7 @@ const sections: SectionItem[] = [
   <!-- Methods -->
   <section
     id="methods"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="methods-heading"
     tabindex="0"
@@ -82,12 +82,12 @@ const sections: SectionItem[] = [
       </p>
     </article>
     <!-- Need to replace this with a table for accessibility -->
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <img
           src="/images/ml-methods.png"
           alt="Outline of training data provided by different datasets"
-          class="rounded-xl border w-full h-auto"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
         />
       </figure>
     </div>
@@ -96,7 +96,7 @@ const sections: SectionItem[] = [
   <!-- Process -->
   <section
     id="findings"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="findings-heading"
     tabindex="0"
@@ -108,9 +108,13 @@ const sections: SectionItem[] = [
         wake-word detection process
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
-        <img src="/images/ml-process.png" alt="Process" class="rounded-xl border w-full h-auto" />
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/ml-process.png"
+          alt="Process"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
       </figure>
     </div>
   </section>
@@ -118,7 +122,7 @@ const sections: SectionItem[] = [
   <!-- Recommendations -->
   <section
     id="recommendations"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="recommendations-heading"
     tabindex="0"
@@ -132,12 +136,12 @@ const sections: SectionItem[] = [
         preventing learning.
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <img
           src="/images/ml-speechbrain.png"
           alt="Logo of Transformer library used"
-          class="rounded-xl border w-full h-auto"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
         />
       </figure>
     </div>
@@ -146,7 +150,7 @@ const sections: SectionItem[] = [
   <!-- Publication 1 -->
   <section
     id="publication-1"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="publication-1-heading"
     tabindex="0"
@@ -158,11 +162,11 @@ const sections: SectionItem[] = [
         Recognition.
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <iframe
           src="/docs/ml_asr_yrc.pdf"
-          class="w-full h-[720px] rounded-xl border"
+          class="w-full h-[720px] md:flex-1 md:min-h-0 md:h-full rounded-xl border"
           title="Literature Review of Automatic Speech Recongition"
         ></iframe>
       </figure>
@@ -172,7 +176,7 @@ const sections: SectionItem[] = [
   <!-- Publication 2 -->
   <section
     id="publication-2"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="publication-2-heading"
     tabindex="0"
@@ -184,11 +188,11 @@ const sections: SectionItem[] = [
         2022.
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <figure>
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
         <iframe
           src="/docs/ml_asr_lit_review.pdf"
-          class="w-full h-[720px] rounded-xl border"
+          class="w-full h-[720px] md:flex-1 md:min-h-0 md:h-full rounded-xl border"
           title="Young Researchers Consortium Publication"
         ></iframe>
       </figure>

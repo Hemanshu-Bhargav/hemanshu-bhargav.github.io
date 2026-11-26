@@ -17,7 +17,7 @@ const sections: SectionItem[] = [
   <!-- Problem -->
   <section
     id="problem"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="problem-heading"
     tabindex="0"
@@ -26,15 +26,21 @@ const sections: SectionItem[] = [
       <h2 id="problem-heading" class="text-2xl font-semibold">Problem</h2>
       <p>Partnered with a custodial service to identify pain points among staff.</p>
     </article>
-    <div class="md:w-[65%]">
-      <img src="/images/consulting-slide.png" alt="Case" class="rounded-xl border w-full h-auto" />
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/consulting-slide.png"
+          alt="Case"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+      </figure>
     </div>
   </section>
 
   <!-- Methods -->
   <section
     id="methods"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="methods-heading"
     tabindex="0"
@@ -47,15 +53,21 @@ const sections: SectionItem[] = [
         experienced staff.
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <img src="/images/hta_pre.png" alt="Research Methods" class="rounded-xl border w-full h-auto" />
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/hta_pre.png"
+          alt="Research Methods"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+      </figure>
     </div>
   </section>
 
   <!-- Process -->
   <section
     id="process"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="process-heading"
     tabindex="0"
@@ -67,15 +79,21 @@ const sections: SectionItem[] = [
         60% reduction in non-direct work
       </p>
     </article>
-    <div class="md:w-[65%]">
-      <img src="/images/hta_post.png" alt="HTA_Post" class="rounded-xl border w-full h-auto" />
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/hta_post.png"
+          alt="HTA_Post"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+      </figure>
     </div>
   </section>
 
   <!-- Demo / Improvements -->
   <section
     id="improvements"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="improvements-heading"
     tabindex="0"
@@ -84,15 +102,21 @@ const sections: SectionItem[] = [
       <h2 id="improvements-heading" class="text-2xl font-semibold">Demo</h2>
       <p>Performed biomechnicalling modelling to identify shear compression forces and reduce workplace injuries.</p>
     </article>
-    <div class="md:w-[65%]">
-      <img src="/images/pre_intervention.png" alt="Improvements" class="rounded-xl border w-full h-auto" />
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/pre_intervention.png"
+          alt="Improvements"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+      </figure>
     </div>
   </section>
 
   <!-- Analysis -->
   <section
     id="analysis"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="analysis-heading"
     tabindex="0"
@@ -101,15 +125,21 @@ const sections: SectionItem[] = [
       <h2 id="analysis-heading" class="text-2xl font-semibold">Analysis</h2>
       <p>Leveraged biomechanical knowledge to propose interventions that reduced loading forces by 97.5%</p>
     </article>
-    <div class="md:w-[65%]">
-      <img src="/images/post_intervention.png" alt="Analysis" class="rounded-xl border w-full h-auto" />
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/post_intervention.png"
+          alt="Analysis"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+      </figure>
     </div>
   </section>
 
   <!-- Results -->
   <section
     id="results"
-    class="scroll-mt-40 md:flex gap-x-10"
+    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
     role="region"
     aria-labelledby="results-heading"
     tabindex="0"
@@ -118,8 +148,14 @@ const sections: SectionItem[] = [
       <h2 id="results-heading" class="text-2xl font-semibold">Results</h2>
       <p>Resulting interventions reduced work by up to 60%.</p>
     </article>
-    <div class="md:w-[65%]">
-      <img src="/images/percent_reduction.png" alt="Results" class="rounded-xl border w-full h-auto" />
+    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
+      <figure class="flex-1 flex flex-col min-h-0">
+        <img
+          src="/images/percent_reduction.png"
+          alt="Results"
+          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+        />
+      </figure>
     </div>
   </section>
 </SectionedPageLayout>

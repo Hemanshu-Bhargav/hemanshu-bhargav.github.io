@@ -1,120 +1,137 @@
-<nav class="flex items-center justify-between px-20 py-4 bg-white fixed top-0 left-0 w-full z-50 border-b border-gray-200 shadow-sm"
-     role="navigation" aria-label="Main navigation">
-  <!-- Logo / Name with Braille -->
-  <div class="text-left leading-tight" tabindex="0">
-    <div class="text-xl font-extrabold text-black tracking-tight">
-      Hemanshu <span class="text-sky-500">Bhargav</span>
+<nav
+  class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200 shadow-sm px-8 py-4"
+  role="navigation"
+  aria-label="Main navigation"
+>
+  <div class="max-w-screen-2xl mx-auto px-6 flex items-center justify-between">
+    <!-- Logo / Name with Braille -->
+    <div class="text-left leading-tight md:pl-[21px]" tabindex="0">
+      <div class="text-xl font-extrabold text-black tracking-tight">
+        Hemanshu <span class="text-sky-500">Bhargav</span>
+      </div>
     </div>
+
+    <!-- Navigation -->
+    <ul class="flex gap-4 text-sm font-semibold items-center">
+      <!-- Home -->
+      <li>
+        <a
+          href="/"
+          class="px-4 py-2 rounded border border-transparent hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition block"
+          tabindex="0"
+        >
+          Home
+        </a>
+      </li>
+      <!-- Projects Dropdown -->
+      <li class="relative group">
+        <button
+          class="px-3 py-2 rounded border border-transparent hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition block cursor-pointer"
+          aria-haspopup="true"
+          aria-expanded="false"
+          tabindex="0"
+          id="projects-menu"
+          type="button"
+        >
+          Portfolio
+        </button>
+        <ul
+          class="absolute left-0 mt-2 w-56 bg-white border border-gray-300 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 invisible group-hover:visible group-focus-within:visible transition-all duration-200 z-50"
+          role="menu"
+          aria-label="Portfolio"
+          aria-labelledby="portfolio-menu"
+          tabindex="0"
+        >
+          <li>
+            <a
+              href="/human-ai-interaction"
+              class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+              tabindex="0"
+              role="menuitem"
+            >
+              Human-AI&nbsp;Interaction
+            </a>
+          </li>
+          <li>
+            <a
+              href="/voice-agent-engineering"
+              class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+              tabindex="0"
+              role="menuitem"
+            >
+              Voice&nbsp;Agent&nbsp;Engineering
+            </a>
+          </li>
+          <li>
+            <a
+              href="/biomech-consulting"
+              class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+              tabindex="0"
+              role="menuitem"
+            >
+              Biomech&nbsp;Consulting
+            </a>
+          </li>
+          <li>
+            <a
+              href="/ai-workflow-design"
+              class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+              tabindex="0"
+              role="menuitem"
+            >
+              AI&nbsp;Workflow&nbsp;Design
+            </a>
+          </li>
+          <li>
+            <a
+              href="/machine-learning"
+              class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+              tabindex="0"
+              role="menuitem"
+            >
+              Machine&nbsp;Learning
+            </a>
+          </li>
+          <li>
+            <span class="block px-3 py-2 font-semibold text-gray-700 cursor-default">
+              Software&nbsp;Eng&nbsp;Reports
+            </span>
+            <ul class="pl-6">
+              <li>
+                <a
+                  href="/internal-product-design"
+                  class="block px-1 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+                  tabindex="0"
+                  role="menuitem"
+                >
+                  Internal&nbsp;Product&nbsp;Design
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/email-search-engine"
+                  class="block px-1 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
+                  tabindex="0"
+                  role="menuitem"
+                >
+                  Email&nbsp;Search&nbsp;Engine
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- About Me (top-level nav item) -->
+      <li>
+        <a
+          href="/about-me"
+          class="px-4 py-2 rounded border border-transparent hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition block"
+          tabindex="0"
+        >
+          About Me
+        </a>
+      </li>
+    </ul>
   </div>
-
-  <!-- Navigation -->
-  <ul class="flex gap-4 text-sm font-semibold items-center">
-    <!-- Home -->
-    <li>
-      <a href="/"
-         class="px-4 py-2 rounded border border-transparent hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition block"
-         tabindex="0">
-        Home
-      </a>
-    </li>
-    <!-- Projects Dropdown -->
-    <li class="relative group">
-      <button
-        class="px-3 py-2 rounded border border-transparent hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition block cursor-pointer"
-        aria-haspopup="true"
-        aria-expanded="false"
-        tabindex="0"
-        id="projects-menu"
-        type="button"
-      >
-        Portfolio
-      </button>
-      <ul
-        class="absolute left-0 mt-2 w-56 bg-white border border-gray-300 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 invisible group-hover:visible group-focus-within:visible transition-all duration-200 z-50"
-        role="menu"
-        aria-label="Portfolio"
-        aria-labelledby="portfolio-menu"
-        tabindex="0"
-      >
-        <li>
-          <a href="/human-ai-interaction"
-             class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
-             tabindex="0"
-             role="menuitem"
-          >
-            Human-AI&nbsp;Interaction
-          </a>
-        </li>
-        <li>
-          <a href="/voice-agent-engineering"
-             class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
-             tabindex="0"
-             role="menuitem"
-          >
-            Voice&nbsp;Agent&nbsp;Engineering
-          </a>
-        </li>
-        <li>
-          <a href="/biomech-consulting"
-             class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
-             tabindex="0"
-             role="menuitem"
-          >
-            Biomech&nbsp;Consulting
-          </a>
-        </li>
-        <li>
-          <a href="/ai-workflow-design"
-             class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
-             tabindex="0"
-             role="menuitem"
-          >
-            AI&nbsp;Workflow&nbsp;Design
-          </a>
-        </li>
-        <li>
-          <a href="/machine-learning"
-             class="block px-3 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
-             tabindex="0"
-             role="menuitem"
-          >
-            Machine&nbsp;Learning
-          </a>
-        </li>
-        <li>
-          <span class="block px-3 py-2 font-semibold text-gray-700 cursor-default">
-            Software&nbsp;Eng&nbsp;Reports
-          </span>
-          <ul class="pl-6">
-            <li>
-              <a href="/internal-product-design"
-                  class="block px-1 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
-                  tabindex="0"
-                  role="menuitem"
-              >
-                Internal&nbsp;Product&nbsp;Design
-              </a>
-            </li>
-            <li>
-              <a href="/email-search-engine"
-                  class="block px-1 py-2 hover:bg-sky-100 hover:text-sky-800 focus:bg-sky-100 focus:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"
-                  tabindex="0"
-                  role="menuitem"
-              >
-                Email&nbsp;Search&nbsp;Engine
-              </a>
-            </li>
-          </ul>
-        </li> 
-      </ul>
-
-    <!-- About Me (top-level nav item) -->
-    <li>
-      <a href="/about-me"
-         class="px-4 py-2 rounded border border-transparent hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition block"
-         tabindex="0">
-        About Me
-      </a>
-    </li>
-  </ul>
 </nav>
