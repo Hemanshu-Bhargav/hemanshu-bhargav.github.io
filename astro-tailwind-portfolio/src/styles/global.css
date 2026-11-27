@@ -21,6 +21,10 @@
   }
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   @apply bg-white text-black font-sans;
 }

@@ -1,173 +1,272 @@
 ---
-// src/pages/voice-agent-engineering.astro
-import SectionedPageLayout from '../layouts/SectionedPageLayout.astro';
-import type { SectionItem } from '../components/SectionSidebar.astro';
+import Layout from '../layouts/Layout.astro';
 
-const sections: SectionItem[] = [
-  { id: 'problem', label: 'Problem' },
-  { id: 'methods', label: 'Methods' },
-  { id: 'findings', label: 'Process' },
-  { id: 'recommendations', label: 'Demo' },
-  { id: 'publication', label: 'Publication' },
+const highlights = [
+  {
+    icon: '🕔',
+    label: 'UX',
+    detail: '7 years in UX, engineering and leading cutting edge research',
+    classes: 'bg-slate-100 text-gray-800 focus-visible:ring-slate-400',
+  },
+  {
+    icon: '🎓',
+    label: 'Promotions',
+    detail: 'Promoted to Lecturer before earning MASc',
+    classes: 'bg-indigo-100 text-indigo-800 focus-visible:ring-indigo-400',
+  },
+  {
+    icon: '📑',
+    label: 'ML/AI Research',
+    detail: 'Novel contributions & intl. conferences',
+    classes: 'bg-green-100 text-green-800 focus-visible:ring-green-400',
+  },
+  {
+    icon: '💰',
+    label: 'Scholarships',
+    detail: '$20K recurring masters stipend and $15K Queen Elizabeth II Graduate Scholarship in Science and Technology',
+    classes: 'bg-yellow-100 text-yellow-800 focus-visible:ring-yellow-400',
+  },
+  {
+    icon: '☤',
+    label: 'Accessibility',
+    detail: 'Experienced in specialized service design for advanced motor, articulatory and neurological disorders',
+    classes: 'bg-purple-100 text-purple-800 focus-visible:ring-purple-400',
+  },
+  {
+    icon: '🏆',
+    label: 'Awards',
+    detail: 'Alan Shepard Equity, Diversity, and Inclusion Award',
+    classes: 'bg-purple-100 text-purple-800 focus-visible:ring-purple-400',
+  },
 ];
 ---
 
-<SectionedPageLayout title="Voice Agent Engineering" sections={sections}>
-  <!-- Problem -->
-  <section
-    id="problem"
-    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
-    role="region"
-    aria-labelledby="problem-heading"
-    tabindex="0"
-  >
-    <article class="md:w-[35%] space-y-6">
-      <h2 id="problem-heading" class="text-2xl font-semibold">Problem</h2>
-      <p>
-        Quadriplegics are individuals with little to no movement in all four limbs and their fingers.
-      </p>
-      <p>
-        As such, they rely on single-swtich devices to operate technology
-      </p>
-      <p>
-        However, telephone functions are often time-sensitive (i.e. Carriers will force calls to voicemail after 6 rings),
-        which is too fast for quadriplegics to answer using single-swtich devices
-      </p>
-    </article>
-    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
-      <figure class="flex-1 flex flex-col min-h-0">
-        <iframe
-          src="https://www.youtube.com/embed/0SChphvFTSg"
-          title="Basic Introduction to Switch Control"
-          class="rounded-xl border w-full h-auto aspect-video md:flex-1 md:min-h-0 md:h-full md:aspect-auto"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Methods -->
-  <section
-    id="methods"
-    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
-    role="region"
-    aria-labelledby="methods-heading"
-    tabindex="0"
-  >
-    <article class="md:w-[35%] space-y-6">
-      <h2 id="methods-heading" class="text-2xl font-semibold">Methods</h2>
-      <p>
-        Proposed use of Automatic Speech Recogntiion, specifically Wake-Word detection
-      </p>
-      <p>
-        Quadriplegics speak slower than those without disordered speech, but they can speak faster than they can use single-switch devices
-      </p>
-    </article>
-    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
-      <figure class="flex-1 flex flex-col min-h-0">
+<Layout>
+  <!-- Anchored with items-start + top offset so expanding chips never shift the image -->
+  <div class="min-h-[calc(100dvh-3rem)] pt-16 lg:pt-[10vh] pb-12 max-w-[82rem] mx-auto flex items-start justify-center">
+    <!-- Intro Section -->
+    <section
+      role="region"
+      aria-labelledby="intro-heading"
+      tabindex="0"
+      class="w-full flex flex-col lg:flex-row items-center lg:items-start justify-center gap-9 lg:gap-[3.3rem]"
+    >
+      <!-- Profile Image (-5% across all breakpoints; locked in place) -->
+      <div class="flex-shrink-0 lg:mt-6">
         <img
-          src="/images/asr-methods.png"
-          alt="Research Methods"
-          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
+          src="images/window_shot.jpg"
+          alt="Hemanshu Bhargav"
+          class="w-64 h-64 sm:w-[20.5rem] sm:h-[20.5rem] lg:w-[22.8rem] lg:h-[22.8rem] xl:w-[27.35rem] xl:h-[27.35rem] rounded-full object-cover object-[90%_100%] shadow-lg"
         />
-      </figure>
-    </div>
-  </section>
+      </div>
 
-  <!-- Process -->
-  <section
-    id="findings"
-    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
-    role="region"
-    aria-labelledby="findings-heading"
-    tabindex="0"
-  >
-    <article class="md:w-[35%] space-y-6">
-      <h2 id="findings-heading" class="text-2xl font-semibold">Process</h2>
-      <p>
-        Train individual users' speech to create custom voice commands (wake-words) to operate telephone services
-      </p>
-    </article>
-    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
-      <figure class="flex-1 flex flex-col min-h-0">
-        <img
-          src="/images/asr-process.png"
-          alt="Process"
-          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
-        />
-      </figure>
-    </div>
-  </section>
+      <!-- About (-5% width & typography) -->
+      <article class="w-full max-w-[47.9rem] text-center lg:text-left">
+        <h1 id="intro-heading" class="text-[2.55rem] md:text-[3.4rem] leading-tight font-bold mb-6">
+          Hi, I'm Hemanshu 👋
+        </h1>
+        <div class="text-[1.425rem] font-semibold leading-tight mb-5">
+          <div class="flex flex-wrap justify-center lg:justify-start gap-x-2.5 mt-1">
+            <span>Senior UX Researcher,</span>
+            <span>Lecturer, and</span>
+            <span>AI/ML Scientist</span>
+          </div>
+        </div>
+        <p class="text-[1.14rem] sm:text-[1.28rem] leading-relaxed text-gray-700 mb-6">
+          I holisitcally merge the quantiative and qualitative 
+          for a complete view of product strategy. I have a rigorous background in Machine Learning, designing accessible 
+          product interfaces and managing conflicting priorities.
+          My expertise was recognized with an exceptional promotion to Professor/Lecturer at Toronto 
+          Metropolitan University.
+        </p>
+        <p class="text-[1.14rem] sm:text-[1.28rem] leading-relaxed text-gray-700 mb-6">
+          <a
+            href="https://github.com/Hemanshu-Bhargav/hemanshu-bhargav.github.io"
+            class="underline text-gray-700 hover:text-gray-900"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View my website's code on GitHub.
+          </a>
+        </p>
 
-  <!-- Demo -->
-  <section
-    id="recommendations"
-    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
-    role="region"
-    aria-labelledby="recommendations-heading"
-    tabindex="0"
-  >
-    <article class="md:w-[35%] space-y-6">
-      <h2 id="recommendations-heading" class="text-2xl font-semibold">Demo</h2>
-      <p>
-        A demonstration of the single-switch accessible voice web application I independently developed
-      </p>
-    </article>
-    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
-      <figure class="flex-1 flex flex-col min-h-0">
-        <video
-          id="demo-video"
-          src="/videos/asr-demo.mp4"
-          controls
-          onloadedmetadata="this.playbackRate=0.5"
-          class="rounded-xl border w-full h-auto md:flex-1 md:min-h-0 md:h-full object-contain"
-          aria-label="Web App Demonstration"
-          tabindex="0"
-        >
-          Your browser does not support the video tag.
-        </video>
-      </figure>
-    </div>
-  </section>
+        <h3 class="text-[1.425rem] md:text-[1.7rem] font-semibold mt-9 mb-4">A few highlights:</h3>
+        <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3.5" role="list">
+          {highlights.map(({ icon, label, detail, classes }) => (
+            <li class="relative min-w-0 h-10 hover:z-20 focus-within:z-20 has-[[aria-expanded='true']]:z-20">
+              <button
+                type="button"
+                aria-expanded="false"
+                data-expandable-chip
+                class={`expandable-chip absolute inset-x-0 top-0 w-full px-3.5 py-2 rounded-2xl text-[1rem] font-medium text-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-shadow ${classes}`}
+              >
+                <span class="flex items-center justify-center gap-2">
+                  <span aria-hidden="true" class="shrink-0">{icon}</span>
+                  <span class="font-semibold truncate">{label}</span>
+                </span>
+                <span class="chip-detail-wrap">
+                  <span class="chip-detail-inner">
+                    <span class="block pt-1.5 text-[0.85rem] font-normal leading-snug opacity-90">
+                      {detail}
+                    </span>
+                  </span>
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
 
-  <!-- Publication -->
-  <section
-    id="publication"
-    class="scroll-mt-40 md:flex md:items-stretch gap-x-10"
-    role="region"
-    aria-labelledby="publication-heading"
-    tabindex="0"
-  >
-    <article class="md:w-[35%] space-y-6">
-      <h2 id="publication-heading" class="text-2xl font-semibold">Publication</h2>
-      <p>
-        Academic publication disseminating my research-- presented at the International Conference on Helping People with special
-        Needs 2020
-      </p>
-    </article>
-    <div class="md:w-[65%] md:flex md:flex-col mt-6 md:mt-0">
-      <figure class="flex-1 flex flex-col min-h-0">
-        <iframe
-          src="/docs/asr-icchp.pdf"
-          class="w-full h-[720px] md:flex-1 md:min-h-0 md:h-full rounded-xl border"
-          title="Tecla Sound PDF"
-        ></iframe>
-      </figure>
-    </div>
-  </section>
-</SectionedPageLayout>
+        <!-- Social Media Icons (-5% size & spacing) -->
+        <div role="region" aria-label="Social Media Links" class="mt-6 flex justify-center lg:justify-start gap-6 items-center">
+          <!-- LinkedIn (#0A66C2) -->
+          <a
+            href="https://www.linkedin.com/in/hemanshu-bhargav-6585ab1b1/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="text-[#0A66C2] hover:opacity-80 transition w-[1.7rem] h-[1.7rem]"
+          >
+            <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.91 1.65-1.86 3.4-1.86 3.64 0 4.32 2.4 4.32 5.52v6.23zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM6.96 20.45H3.72V9h3.24v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/>
+            </svg>
+          </a>
 
-<script>
-  function setDemoPlaybackRate() {
-    const demoVideo = document.getElementById('demo-video') as HTMLVideoElement | null;
-    if (demoVideo) {
-      demoVideo.defaultPlaybackRate = 0.5;
-      demoVideo.playbackRate = 0.5;
+          <!-- Instagram (brand radial gradient) -->
+          <a
+            href="https://www.instagram.com/withhemanshu?igsh=ZHJneGsxOHp5d3Vm&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="hover:opacity-80 transition w-[1.7rem] h-[1.7rem]"
+          >
+            <svg viewBox="0 0 24 24" class="w-full h-full" aria-hidden="true">
+              <defs>
+                <radialGradient id="ig-brand-gradient" cx="30%" cy="107%" r="150%">
+                  <stop offset="0%" stop-color="#FDF497" />
+                  <stop offset="5%" stop-color="#FDF497" />
+                  <stop offset="45%" stop-color="#FD5949" />
+                  <stop offset="60%" stop-color="#D6249F" />
+                  <stop offset="90%" stop-color="#285AEB" />
+                </radialGradient>
+              </defs>
+              <path
+                fill="url(#ig-brand-gradient)"
+                d="M12 2.16c3.2 0 3.584.012 4.85.07 1.17.054 1.796.24 2.215.403a4.6 4.6 0 0 1 1.675 1.092 4.6 4.6 0 0 1 1.092 1.675c.163.419.35 1.045.403 2.215.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.796-.403 2.215a4.6 4.6 0 0 1-1.092 1.675 4.6 4.6 0 0 1-1.675 1.092c-.419.163-1.045.35-2.215.403-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.796-.24-2.215-.403a4.6 4.6 0 0 1-1.675-1.092 4.6 4.6 0 0 1-1.092-1.675c-.163-.419-.35-1.045-.403-2.215C2.172 15.584 2.16 15.2 2.16 12s.012-3.584.07-4.85c.054-1.17.24-1.796.403-2.215a4.6 4.6 0 0 1 1.092-1.675A4.6 4.6 0 0 1 5.4 2.633c.419-.163 1.045-.35 2.215-.403C8.416 2.172 8.8 2.16 12 2.16zm0-2.16C8.736 0 8.332.014 7.052.072 5.76.13 4.693.335 3.758.725a6.746 6.746 0 0 0-2.458 1.603A6.746 6.746 0 0 0 .725 4.758C.335 5.693.13 6.76.072 8.052.014 9.332 0 9.736 0 12c0 2.264.014 2.668.072 3.948.058 1.292.263 2.359.653 3.294a6.746 6.746 0 0 0 1.603 2.458 6.746 6.746 0 0 0 2.458 1.603c.935.39 2.002.595 3.294.653C9.332 23.986 9.736 24 12 24s2.668-.014 3.948-.072c1.292-.058 2.359-.263 3.294-.653a6.746 6.746 0 0 0 2.458-1.603 6.746 6.746 0 0 0 1.603-2.458c.39-.935.595-2.002.653-3.294.058-1.28.072-1.684.072-3.948s-.014-2.668-.072-3.948c-.058-1.292-.263-2.359-.653-3.294a6.746 6.746 0 0 0-1.603-2.458A6.746 6.746 0 0 0 20.242.725C19.307.335 18.24.13 16.948.072 15.668.014 15.264 0 12 0zM12 5.838A6.162 6.162 0 1 0 18.162 12 6.17 6.17 0 0 0 12 5.838zm0 10.162A3.999 3.999 0 1 1 16 12a4.004 4.004 0 0 1-4 4zm6.406-11.845a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"
+              />
+            </svg>
+          </a>
+
+          <!-- Gmail (#EA4335) -->
+          <a
+            href="mailto:inbox.hemanshu@gmail.com"
+            aria-label="Email"
+            class="text-[#EA4335] hover:opacity-80 transition w-[1.7rem] h-[1.7rem]"
+          >
+            <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full" aria-hidden="true">
+              <path d="M12 13.5 0 6V5.25C0 4.007 1.007 3 2.25 3h19.5C22.993 3 24 4.007 24 5.25V6l-12 7.5zM0 7.5v11.25C0 19.993 1.007 21 2.25 21h19.5c1.243 0 2.25-1.007 2.25-2.25V7.5l-12 7.5L0 7.5z"/>
+            </svg>
+          </a>
+
+          <!-- GitHub (#181717) -->
+          <a
+            href="https://github.com/Hemanshu-Bhargav"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="text-[#181717] hover:opacity-80 transition w-[1.7rem] h-[1.7rem]"
+          >
+            <svg fill="currentColor" viewBox="0 0 16 16" class="w-full h-full" aria-hidden="true">
+              <path d="M8 .198a8 8 0 0 0-2.53 15.591c.4.074.546-.174.546-.386
+                      0-.19-.007-.693-.011-1.36-2.226.483-2.695-1.073-2.695-1.073
+                      -.364-.924-.89-1.17-.89-1.17-.727-.497.055-.487.055-.487
+                      .804.056 1.227.826 1.227.826.716 1.226 1.878.872
+                      2.335.667.073-.519.28-.873.508-1.074-1.777-.202-3.644-.888-3.644-3.953
+                      0-.873.312-1.588.824-2.148-.083-.203-.357-1.02.078-2.124 0 0
+                      .672-.215 2.2.82A7.66 7.66 0 0 1 8 4.867a7.59 7.59 0 0 1 2.003.27
+                      c1.527-1.035 2.198-.82 2.198-.82.437 1.105.163 1.922.08 2.124
+                      .513.56.823 1.275.823 2.148 0 3.073-1.87 3.748-3.653 3.947
+                      .288.248.543.739.543 1.49 0 1.074-.01 1.94-.01 2.2 0 .214.144.463.55.384
+                      A8 8 0 0 0 8 .198Z"/>
+            </svg>
+          </a>
+
+          <!-- ORCID (#A6CE39) -->
+          <a
+            href="https://orcid.org/0000-0002-6412-6521"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ORCID"
+            class="text-[#A6CE39] hover:opacity-80 transition w-[1.7rem] h-[1.7rem]"
+          >
+            <svg fill="currentColor" viewBox="0 0 256 256" class="w-full h-full" aria-hidden="true">
+              <circle cx="128" cy="128" r="128"/>
+              <rect x="122" y="86" width="12" height="80" fill="#fff"/>
+              <circle cx="128" cy="66" r="10" fill="#fff"/>
+              <path d="M164 86h-22v80h22c22 0 40-18 40-40s-18-40-40-40Z" fill="#fff"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  /* Scoped strictly to index.astro so it never interferes with other pages */
+  .chip-detail-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 250ms cubic-bezier(0.22, 1, 0.36, 1), opacity 200ms ease;
+  }
+
+  .chip-detail-inner {
+    overflow: hidden;
+  }
+
+  /* Expand on hover (pointer devices), keyboard focus, or toggled click state */
+  @media (hover: hover) {
+    .expandable-chip:hover {
+      box-shadow: 0 10px 20px -6px rgb(0 0 0 / 0.14);
+    }
+
+    .expandable-chip:hover .chip-detail-wrap {
+      grid-template-rows: 1fr;
+      opacity: 1;
     }
   }
 
-  document.addEventListener('DOMContentLoaded', setDemoPlaybackRate);
-  document.addEventListener('astro:page-load', setDemoPlaybackRate);
+  .expandable-chip:focus-visible,
+  .expandable-chip[aria-expanded='true'] {
+    box-shadow: 0 10px 20px -6px rgb(0 0 0 / 0.14);
+  }
+
+  .expandable-chip:focus-visible .chip-detail-wrap,
+  .expandable-chip[aria-expanded='true'] .chip-detail-wrap {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chip-detail-wrap {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  function initExpandableChips() {
+    document.querySelectorAll<HTMLButtonElement>('[data-expandable-chip]').forEach((chip) => {
+      if (chip.dataset.initialized === 'true') return;
+      chip.dataset.initialized = 'true';
+
+      chip.addEventListener('click', () => {
+        const isExpanded = chip.getAttribute('aria-expanded') === 'true';
+        chip.setAttribute('aria-expanded', String(!isExpanded));
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initExpandableChips);
+  document.addEventListener('astro:page-load', initExpandableChips);
 </script>
